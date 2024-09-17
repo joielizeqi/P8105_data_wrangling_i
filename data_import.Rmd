@@ -13,6 +13,10 @@ This document will show how to import data.
 ## Import the FAS Litters CSV
 ```{r}
 litters_df = read_csv('data/FAS_litters.csv')
+
+litters_df = janitor::clean_names(litters_df) 
+# clean_names(): space -> underscore, uppercase -> lowercase
+# `::`: specifies which package the function is from; use if only one function is needed from the package
 ```
 
 
@@ -27,5 +31,18 @@ tail(litters_df, 10)
 ```{r eval = FALSE}
 # eval = FALSE helps with view() when knitting the document
 view(litters_df)
+```
+
+## Learning assessment
+Importing FAS_pups.csv using relative path
+
+```{r}
+pups_df_rel = read_csv('data/FAS_pups.csv')
+pups_df_rel = janitor::clean_names(pups_df_rel)
+pups_df_rel
+```
+Importing FAS_pups.csv using absolute path. Absolute paths are fragile and not sustainable between collaborators.
+```{r}
+pups_df_abs = read_csv('~/columbia/bist p8150/data_wrangling_i/data/FAS_pups.csv')
 ```
 
