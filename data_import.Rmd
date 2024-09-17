@@ -46,3 +46,30 @@ Importing FAS_pups.csv using absolute path. Absolute paths are fragile and not s
 pups_df_abs = read_csv('~/columbia/bist p8150/data_wrangling_i/data/FAS_pups.csv')
 ```
 
+## Look at read_csv options
+Importing data.
+
+If data contains irrelevant info in the first few rows, use the `skip` argument.
+
+```{r}
+litters_df = read_csv(file = 'data/FAS_litters.csv',
+                      col_names = FALSE)
+# 
+```
+
+Working with missing data.
+
+Use the `na` argument to replace all missing data and make sure data are numerical
+```{r}
+litters_df = read_csv(file = 'data/FAS_litters.csv',
+                      na = c('NA', '', '.'))
+```
+If we want to change the data type of a column, use `cols()`
+```{r}
+litters_df = read_csv(file = 'data/FAS_litters.csv',
+                      na = c('NA', '', '.'),
+                      col_types = cols(Group = col_factor()))
+litters_df
+```
+
+
