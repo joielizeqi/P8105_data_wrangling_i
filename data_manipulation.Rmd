@@ -170,3 +170,16 @@ arrange(litters_df,
         gd0_weight)
 ```
 
+## piping
+Keyboard shortcut: `shift`+`command`+`M`
+```{r}
+litters_df = 
+  read_csv("data/FAS_litters.csv",
+           na = c("NA", "", ".")) |> 
+  janitor::clean_names() |> 
+  select(-pups_born_alive) |> 
+  filter(group == "Con7") |> 
+  mutate(wt_gain = gd18_weight - gd0_weight)
+
+```
+
