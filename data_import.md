@@ -206,3 +206,20 @@ litters_df
     ## # ℹ 39 more rows
     ## # ℹ 3 more variables: `Pups born alive` <dbl>, `Pups dead @ birth` <dbl>,
     ## #   `Pups survive` <dbl>
+
+## Import an excel file
+
+Importing the mlb11 excel file.
+
+`read_excel()` is under the `readxl` package. Use the `sheet` argument
+to load in specific sheet in an excel.
+
+``` r
+mlb_df = read_excel('data/mlb11.xlsx')
+```
+
+## Import SAS data
+
+``` r
+pulse_df = read_sas('data/public_pulse_data.sas7bdat')
+```
